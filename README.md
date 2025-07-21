@@ -20,9 +20,8 @@ Currently in **alpha stage**, it provides basic functionality to manage sing-box
 
 ## Usage
 
-- Make sure [.NET 8 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer) is installed (unless you use the Self-Contained version), then run `Peco.exe`.
-
-- Place `sing-box.exe` in the same folder as `Peco.exe` (not required if you use the Self-Contained version with Core).
+- [.NET 8 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer) is required to run Peco, `unless you are using the Self-Contained version`.
+Run `Peco.exe` to start the application.
 
 - Load your configuration via **Config → Load** before starting the core.
 
