@@ -33,6 +33,14 @@ namespace Peco
                 return;
             }
 
+            Config.Validate();
+
+            if (!Config.Good)
+            {
+                Alert.InvalidConfigFormat();
+                SUCCESS = false;
+                return;
+            }
             /*
             if (Settings.Mode == Settings.TUN_MODE)
             {
@@ -47,14 +55,8 @@ namespace Peco
             }
             */
 
-            Config.Validate();
-
-            if (!Config.Good)
+            var startInfo = new ProcessStartInfo
             {
-                Alert.InvalidConfigFormat();
-                SUCCESS = false;
-                return;
-            }
 
             _singBox = new Process();
             _singBox.StartInfo.FileName = Settings.CorePath;

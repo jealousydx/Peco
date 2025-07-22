@@ -7,15 +7,30 @@
         
         public static void Validate()
         {
-            if (!File.Exists(Settings.ConfigPath))
+            var startInfo = new ProcessStartInfo
             {
-                // Settings.LoadDefaultConfig();
+                FileName = Settings.CorePath,
+                Arguments = $"check -c {Settings.ConfigPath}",
+                RedirectStandardError = true,
+                CreateNoWindow = true,
+                UseShellExecute = false
+            };
 
-                _validated = false;
+            var validator = new Process { StartInfo = startInfo };
+            
+            validator.Start();
+
+            string error = validator.StandardError.ReadToEnd();
+
+            validator.WaitForExit();
+
+            if (string.IsNullOrEmpty(error))
+            {
+                _validated = true;
                 return;
             }
 
-            _validated = true;
+            _validated = false;
         }
     }
 }
