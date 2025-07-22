@@ -57,13 +57,13 @@ namespace Peco
 
             var startInfo = new ProcessStartInfo
             {
+                FileName = Settings.CorePath,
+                Arguments = $"run -c {Settings.ConfigPath}",
+                CreateNoWindow = true,
+                UseShellExecute = false
+            };
 
-            _singBox = new Process();
-            _singBox.StartInfo.FileName = Settings.CorePath;
-            _singBox.StartInfo.Arguments = $"run -c {Settings.ConfigPath}";
-            _singBox.StartInfo.CreateNoWindow = true;
-            _singBox.StartInfo.UseShellExecute = false;
-
+            _singBox = new Process{ StartInfo = startInfo };
             _singBox.Start();
 
             SUCCESS = true;
@@ -85,8 +85,7 @@ namespace Peco
             FreeConsole();
             SetConsoleCtrlHandler(null, false);
 
-            _singBox?.Dispose();
-
+            _singBox.Dispose();
             _singBox = null;
         }
 
