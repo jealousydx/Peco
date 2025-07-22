@@ -1,6 +1,4 @@
-﻿using Microsoft.Win32;
-
-namespace Peco
+﻿namespace Peco
 {
     internal partial class App
     {

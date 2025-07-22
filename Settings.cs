@@ -19,7 +19,7 @@ namespace Peco
             { "mode", "system_proxy" },
         };
 
-        private static string _settingsFile = Path.Combine(_appDataDir, "settings.json");
+        private static readonly string _settingsFile = Path.Combine(_appDataDir, "settings.json");
 
         private static string _infoMessage = "";
 

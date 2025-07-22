@@ -128,7 +128,6 @@
             // ModeButton
             // 
             ModeButton.DropDownItems.AddRange(new ToolStripItem[] { SetSystemProxyButton, SetTunModeButton });
-            ModeButton.Enabled = false;
             ModeButton.Name = "ModeButton";
             ModeButton.Size = new Size(50, 30);
             ModeButton.Text = "Mode";

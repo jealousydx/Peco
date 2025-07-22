@@ -7,6 +7,10 @@ namespace Peco
         private NotifyIcon _trayIcon;
         private ContextMenuStrip _trayMenu;
 
+        private ToolStripMenuItem _onMenuItem;
+        private ToolStripMenuItem _offMenuItem;
+        private ToolStripMenuItem _exitMenuItem;
+
         public MainForm(App context)
         {
             InitializeComponent();
@@ -38,21 +42,27 @@ namespace Peco
         private void InitializeTrayIcon()
         {
             _trayMenu = new ContextMenuStrip();
-            _trayMenu.Items.Add("On", null, TurnOnButton_Click);
-            _trayMenu.Items.Add("Off", null, TurnOffButton_Click);
-            _trayMenu.Items.Add("Exit", null, ExitButton_Click);
+
+            _onMenuItem = new ToolStripMenuItem("On", null, TurnOnButton_Click);
+            _offMenuItem = new ToolStripMenuItem("Off", null, TurnOffButton_Click);
+            _exitMenuItem = new ToolStripMenuItem("Exit", null, ExitButton_Click);
+
+            _trayMenu.Items.Add(_onMenuItem);
+            _trayMenu.Items.Add(_offMenuItem);
+            _trayMenu.Items.Add(_exitMenuItem);
 
             _trayIcon = new NotifyIcon();
             _trayIcon.Text = "Peco";
             _trayIcon.Icon = this.Icon;
-
             _trayIcon.ContextMenuStrip = _trayMenu;
             _trayIcon.Visible = true;
 
             _trayIcon.MouseClick += TrayIcon_MouseClick;
+
+            SetButtonsStateOff();
         }
 
-        private void TrayIcon_MouseClick(object sender, MouseEventArgs e)
+        private void TrayIcon_MouseClick(object? sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -62,7 +72,7 @@ namespace Peco
             }
         }
 
-        private void TurnOnButton_Click(object sender, EventArgs e)
+        private void TurnOnButton_Click(object? sender, EventArgs e)
         {
             Core.TurnOn();
 
@@ -72,7 +82,7 @@ namespace Peco
             }
         }
 
-        private void TurnOffButton_Click(object sender, EventArgs e)
+        private void TurnOffButton_Click(object? sender, EventArgs e)
         {
             Core.TurnOff();
             SetButtonsStateOff();
@@ -96,7 +106,7 @@ namespace Peco
             Settings.OpenConfigFile();
         }
 
-        private void ExitButton_Click(object sender, EventArgs e)
+        private void ExitButton_Click(object? sender, EventArgs e)
         {
             _trayIcon.Visible = false;
             _trayIcon.Dispose();
@@ -109,7 +119,7 @@ namespace Peco
             if (!_app.IsExiting())
             {
                 e.Cancel = true;
-                Hide();
+                this.Hide();
                 return;
             }
 
@@ -150,12 +160,18 @@ namespace Peco
         {
             TurnOnButton.Enabled = false;
             TurnOffButton.Enabled = true;
+
+            _onMenuItem.Enabled = false;
+            _offMenuItem.Enabled = true;
         }
 
         private void SetButtonsStateOff()
         {
             TurnOnButton.Enabled = true;
             TurnOffButton.Enabled = false;
+
+            _onMenuItem.Enabled = true;
+            _offMenuItem.Enabled = false;
         }
 
         private void AboutPecoButton_Click(object sender, EventArgs e)
