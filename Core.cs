@@ -94,7 +94,7 @@ namespace Peco
         {
             if (!File.Exists(Settings.CorePath))
             {
-                Alert.Error("sing-box.exe must be in the same folder as the app");
+                Alert.Error("sing-box.exe must be in the <core/> folder");
                 return false;
             }
 
