@@ -6,7 +6,9 @@ Currently in **alpha stage**, it provides basic functionality to manage sing-box
 ## Features
 
 - Load and edit configuration files
+
 - Start and stop the core
+
 - Automatically save settings on application exit to `C:\Users\<Username>\AppData\Local\Peco\`
 
 ## Supported Platforms
@@ -20,11 +22,11 @@ Currently in **alpha stage**, it provides basic functionality to manage sing-box
 
 ## Usage
 
-- Make sure [.NET 8 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer) is installed (unless you use the Self-Contained version), then run `Peco.exe`.
+- [.NET 8 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer) is required to run Peco, `unless you are using the Self-Contained version`.
 
-- Place `sing-box.exe` in the `core` folder (not required if you use version "`with Core`"").
+- Run `Peco.exe`
 
-- Load your configuration via **Config → Load** before starting the core.
+- Load your config file via **Config → Load** before starting the core.
 
 ---
 
