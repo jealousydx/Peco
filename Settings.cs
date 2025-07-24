@@ -14,7 +14,7 @@ namespace Peco
 
         private static readonly Dictionary<string, string> DEFAULT_SETTINGS = new()
         {
-            { "config_path", "cfg\\config.json" },
+            { "config_path", "config\\config.json" },
             { "core_path", "core\\sing-box.exe" },
             { "mode", "system_proxy" },
         };
