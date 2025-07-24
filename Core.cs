@@ -49,12 +49,10 @@ namespace Peco
 
             if (!Config.Good)
             {
-                Alert.InvalidConfigFormat();
                 SUCCESS = false;
                 return;
             }
 
-                    SUCCESS = false;
 
             var startInfo = new ProcessStartInfo
             {

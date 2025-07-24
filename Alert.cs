@@ -21,10 +21,5 @@
         {
             MessageBox.Show($"MODE INITED: {Settings.Mode}", "InvalidModeException", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
-        public static void InvalidConfigFormat()
-        {
-            MessageBox.Show("Invalid config format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
     }
 }

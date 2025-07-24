@@ -4,7 +4,7 @@
     {
         private bool _isExiting;
 
-        private Form _mainForm;
+        private readonly Form _mainForm;
 
         public App()
         {

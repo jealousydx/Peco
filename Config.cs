@@ -17,18 +17,20 @@
             };
 
             var validator = new Process { StartInfo = startInfo };
-            
             validator.Start();
 
             string error = validator.StandardError.ReadToEnd();
 
             validator.WaitForExit();
+            validator.Dispose();
 
             if (string.IsNullOrEmpty(error))
             {
                 _validated = true;
                 return;
             }
+
+            Alert.Error(error);
 
             _validated = false;
         }
