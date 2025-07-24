@@ -4,12 +4,12 @@ namespace Peco
     {
         private readonly App _app;
 
-        private NotifyIcon _trayIcon;
-        private ContextMenuStrip _trayMenu;
+        private NotifyIcon? _trayIcon;
+        private ContextMenuStrip? _trayMenu;
 
-        private ToolStripMenuItem _onMenuItem;
-        private ToolStripMenuItem _offMenuItem;
-        private ToolStripMenuItem _exitMenuItem;
+        private ToolStripMenuItem? _onMenuItem;
+        private ToolStripMenuItem? _offMenuItem;
+        private ToolStripMenuItem? _exitMenuItem;
 
         public MainForm(App context)
         {
@@ -74,6 +74,7 @@ namespace Peco
 
         private void TurnOnButton_Click(object? sender, EventArgs e)
         {
+            Log.Clear();
             Core.TurnOn();
 
             if (Core.SUCCESS)
@@ -139,7 +140,7 @@ namespace Peco
         {
             Settings.SetMode(Settings.TUN_MODE);
             Core.TurnOff();
-            
+
             SetButtonsStateOff();
             SetButtonsStateTunMode();
         }
@@ -149,7 +150,7 @@ namespace Peco
             SetTunModeButton.Checked = true;
             SetSystemProxyButton.Checked = false;
         }
-        
+
         private void SetButtonsStateSystemProxyMode()
         {
             SetTunModeButton.Checked = false;
@@ -177,6 +178,11 @@ namespace Peco
         private void AboutPecoButton_Click(object sender, EventArgs e)
         {
             Alert.Information(Settings.Info);
+        }
+
+        private void LogsButton_Click(object sender, EventArgs e)
+        {
+            _app.ShowLogForm();
         }
     }
 }

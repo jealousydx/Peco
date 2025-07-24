@@ -147,16 +147,16 @@
             SetTunModeButton.CheckOnClick = true;
             SetTunModeButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
             SetTunModeButton.Name = "SetTunModeButton";
-            SetTunModeButton.Size = new Size(180, 22);
+            SetTunModeButton.Size = new Size(145, 22);
             SetTunModeButton.Text = "Tun Mode";
             SetTunModeButton.Click += SetTunModeButton_Click;
             // 
             // LogsButton
             // 
-            LogsButton.Enabled = false;
             LogsButton.Name = "LogsButton";
             LogsButton.Size = new Size(44, 30);
             LogsButton.Text = "Logs";
+            LogsButton.Click += LogsButton_Click;
             // 
             // AboutPecoButton
             // 
@@ -169,7 +169,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(234, 266);
+            ClientSize = new Size(235, 265);
             Controls.Add(ExitButton);
             Controls.Add(SettingsButton);
             Controls.Add(TurnOffButton);

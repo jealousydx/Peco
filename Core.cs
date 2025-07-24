@@ -27,6 +27,18 @@ namespace Peco
 
         public static void TurnOn()
         {
+            if (Settings.Mode == Settings.TUN_MODE)
+            {
+                bool isAdmin = new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
+
+                if (!isAdmin)
+                {
+                    Alert.Warning("TUN MODE: RELAUNCH APP AS ADMIN");
+                    SUCCESS = false;
+                    return;
+                }
+            }
+
             if (!IsRequiredFilesExist())
             {
                 SUCCESS = false;
@@ -41,19 +53,8 @@ namespace Peco
                 SUCCESS = false;
                 return;
             }
-            /*
-            if (Settings.Mode == Settings.TUN_MODE)
-            {
-                bool isAdmin = new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
 
-                if (!isAdmin)
-                {
-                    Alert.Warning("TUN MODE: RELAUNCH APP AS ADMIN");
                     SUCCESS = false;
-                    return;
-                }
-            }
-            */
 
             var startInfo = new ProcessStartInfo
             {

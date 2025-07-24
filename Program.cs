@@ -7,8 +7,6 @@ namespace Peco
         {
             ApplicationConfiguration.Initialize();
 
-            Settings.Init();
-
             App app = new();
             app.Run();
         }
