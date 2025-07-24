@@ -5,9 +5,11 @@
         private bool _isExiting;
 
         private readonly Form _mainForm;
+        private readonly Form _logForm;
 
         public App()
         {
+            Log.Init();
             _mainForm = new MainForm(this);
             _isExiting = false;
         }
@@ -16,9 +18,15 @@
             Application.Run(_mainForm);
         }
 
+        public void ShowLogForm()
+        {
+            _logForm.Show();
+        }
+
         private void CloseAllForms()
         {
             _mainForm.Close();
+            _logForm.Close();
         }
 
         public void Exit()

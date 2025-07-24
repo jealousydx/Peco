@@ -63,8 +63,13 @@ namespace Peco
                 UseShellExecute = false
             };
 
+                UseShellExecute = false,
+                RedirectStandardError = true
+            }
             _singBox = new Process{ StartInfo = startInfo };
+            _singBox.ErrorDataReceived += Log.HandleOutputData;
             _singBox.Start();
+            _singBox.BeginErrorReadLine();
 
             SUCCESS = true;
         }
