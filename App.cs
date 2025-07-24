@@ -9,8 +9,12 @@
 
         public App()
         {
+            Settings.Init();
             Log.Init();
+
             _mainForm = new MainForm(this);
+            _logForm = new LogForm(this);
+
             _isExiting = false;
         }
         public void Run()

@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security.Principal;
 
 namespace Peco
 {
@@ -60,9 +61,6 @@ namespace Peco
                 FileName = Settings.CorePath,
                 Arguments = $"run -c {Settings.ConfigPath}",
                 CreateNoWindow = true,
-                UseShellExecute = false
-            };
-
                 UseShellExecute = false,
                 RedirectStandardError = true
             }
