@@ -8,7 +8,7 @@ namespace Peco
     {
         private static bool _validated = true;
         public static bool Good => _validated;
-        
+
         public static void Build()
         {
             AddLogField();
@@ -46,8 +46,8 @@ namespace Peco
             JsonObject config = JsonNode.Parse(File.ReadAllText(Settings.ConfigPath))!.AsObject();
             JsonNode newInboundsContent = JsonNode.Parse(Properties.Resources.inbound_tun)!;
 
-            config["inbounds"] = newInboundsContent.DeepClone(); 
-            File.WriteAllText(Settings.ConfigPath, config.ToJsonString(new JsonSerializerOptions { WriteIndented = true }))
+            config["inbounds"] = newInboundsContent.DeepClone();
+            File.WriteAllText(Settings.ConfigPath, config.ToJsonString(new JsonSerializerOptions { WriteIndented = true }));
         }
 
         public static void Validate()

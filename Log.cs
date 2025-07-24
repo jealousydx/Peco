@@ -5,14 +5,14 @@ namespace Peco
 {
     internal static class Log
     {
-        private static LogForm? _form;
+        private static LogForm _form = null!;
 
-        private static readonly object _sync = new object();
-        private static readonly Queue<string> _buffer = new Queue<string>();
+        private static readonly object _sync = new();
+        private static readonly Queue<string> _buffer = new();
         private const int MAX_BUFFER_LINES = 300;
         private static int _lastDisplayedLine = 0;
 
-        private static Timer? _timer;
+        private static Timer _timer = null!;
 
         public static void Init()
         {
@@ -84,13 +84,10 @@ namespace Peco
                 _lastDisplayedLine = 0;
             }
 
-            if (_form != null)
-            {
-                _form.Invoke(() =>
+            _form?.Invoke(() =>
                 {
                     _form.logTextBox.Clear();
                 });
-            }
         }
 
         public static void HandleOutputData(object sender, DataReceivedEventArgs e)

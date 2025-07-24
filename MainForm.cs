@@ -4,33 +4,31 @@ namespace Peco
     {
         private readonly App _app;
 
-        private NotifyIcon? _trayIcon;
-        private ContextMenuStrip? _trayMenu;
+        private NotifyIcon _trayIcon = new();
+        private ContextMenuStrip _trayMenu = new();
 
-        private ToolStripMenuItem? _onMenuItem;
-        private ToolStripMenuItem? _offMenuItem;
-        private ToolStripMenuItem? _exitMenuItem;
+        private ToolStripMenuItem _onMenuItem = new();
+        private ToolStripMenuItem _offMenuItem = new();
+        private ToolStripMenuItem _exitMenuItem = new();
 
         public MainForm(App context)
         {
             InitializeComponent();
             InitializeTrayIcon();
-            InitMode();
+            InitializeMode();
 
             _app = context;
         }
 
-        private void InitMode()
+        private void InitializeMode()
         {
             if (Settings.Mode == Settings.TUN_MODE)
             {
                 SetButtonsStateTunMode();
-                return;
             }
             else if (Settings.Mode == Settings.SYSTEM_PROXY)
             {
                 SetButtonsStateSystemProxyMode();
-                return;
             }
             else
             {
@@ -51,7 +49,6 @@ namespace Peco
             _trayMenu.Items.Add(_offMenuItem);
             _trayMenu.Items.Add(_exitMenuItem);
 
-            _trayIcon = new NotifyIcon();
             _trayIcon.Text = "Peco";
             _trayIcon.Icon = this.Icon;
             _trayIcon.ContextMenuStrip = _trayMenu;
@@ -109,8 +106,11 @@ namespace Peco
 
         private void ExitButton_Click(object? sender, EventArgs e)
         {
-            _trayIcon.Visible = false;
-            _trayIcon.Dispose();
+            if (_trayIcon != null)
+            {
+                _trayIcon.Visible = false;
+                _trayIcon.Dispose();
+            }
 
             _app.Exit();
         }

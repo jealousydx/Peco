@@ -9,7 +9,7 @@ namespace Peco
         private static Process? _singBox = null;
 
         [DllImport("kernel32.dll")]
-        private static extern bool AttachConsole (uint dwProcessId);
+        private static extern bool AttachConsole(uint dwProcessId);
 
         [DllImport("kernel32.dll")]
         private static extern bool FreeConsole();
@@ -63,8 +63,9 @@ namespace Peco
                 CreateNoWindow = true,
                 UseShellExecute = false,
                 RedirectStandardError = true
-            }
-            _singBox = new Process{ StartInfo = startInfo };
+            };
+
+            _singBox = new Process { StartInfo = startInfo };
             _singBox.ErrorDataReceived += Log.HandleOutputData;
             _singBox.Start();
             _singBox.BeginErrorReadLine();
