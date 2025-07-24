@@ -53,6 +53,7 @@ namespace Peco
                 return;
             }
 
+            Config.Build();
 
             var startInfo = new ProcessStartInfo
             {

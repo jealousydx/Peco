@@ -121,8 +121,38 @@
   <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="inbound_system_proxy" xml:space="preserve">
+    <value>[
+    {
+      "type": "mixed",  
+        "tag": "socks-in",
+        "listen": "127.0.0.1",
+        "listen_port": 2080,
+        "set_system_proxy": true
+    }
+  ]</value>
+  </data>
+  <data name="inbound_tun" xml:space="preserve">
+    <value>[
+    {
+        "type": "tun",
+        "tag": "tun-in",
+        "interface_name": "sing-box",
+        "address": "172.19.0.1/30",
+        "auto_route": true,
+        "strict_route": true
+    }
+]</value>
+  </data>
   <data name="info" xml:space="preserve">
     <value>[0.1.0-alpha]  
 A simple GUI wrapper for sing-box.exe that helps you start/stop the core and load configs</value>
+  </data>
+  <data name="log" xml:space="preserve">
+    <value>{
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
+  }</value>
   </data>
 </root>

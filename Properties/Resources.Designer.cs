@@ -71,12 +71,60 @@ namespace Peco.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на [
+        ///    {
+        ///      &quot;type&quot;: &quot;mixed&quot;,  
+        ///        &quot;tag&quot;: &quot;socks-in&quot;,
+        ///        &quot;listen&quot;: &quot;127.0.0.1&quot;,
+        ///        &quot;listen_port&quot;: 2080,
+        ///        &quot;set_system_proxy&quot;: true
+        ///    }
+        ///  ].
+        /// </summary>
+        internal static string inbound_system_proxy {
+            get {
+                return ResourceManager.GetString("inbound_system_proxy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на [
+        ///    {
+        ///        &quot;type&quot;: &quot;tun&quot;,
+        ///        &quot;tag&quot;: &quot;tun-in&quot;,
+        ///        &quot;interface_name&quot;: &quot;sing-box&quot;,
+        ///        &quot;address&quot;: &quot;172.19.0.1/30&quot;,
+        ///        &quot;auto_route&quot;: true,
+        ///        &quot;strict_route&quot;: true
+        ///    }
+        ///].
+        /// </summary>
+        internal static string inbound_tun {
+            get {
+                return ResourceManager.GetString("inbound_tun", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на [0.1.0-alpha]  
         ///A simple GUI wrapper for sing-box.exe that helps you start/stop the core and load configs.
         /// </summary>
         internal static string info {
             get {
                 return ResourceManager.GetString("info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на {
+        ///    &quot;disabled&quot;: false,
+        ///    &quot;level&quot;: &quot;info&quot;,
+        ///    &quot;timestamp&quot;: true
+        ///  }.
+        /// </summary>
+        internal static string log {
+            get {
+                return ResourceManager.GetString("log", resourceCulture);
             }
         }
     }
