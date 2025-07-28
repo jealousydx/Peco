@@ -2,8 +2,6 @@ namespace Peco
 {
     internal partial class MainForm : Form
     {
-        private readonly App _app;
-
         private NotifyIcon _trayIcon = new();
         private ContextMenuStrip _trayMenu = new();
 
@@ -11,13 +9,11 @@ namespace Peco
         private ToolStripMenuItem _offMenuItem = new();
         private ToolStripMenuItem _exitMenuItem = new();
 
-        public MainForm(App context)
+        public MainForm()
         {
             InitializeComponent();
             InitializeTrayIcon();
             InitializeMode();
-
-            _app = context;
         }
 
         private void InitializeMode()
@@ -33,7 +29,7 @@ namespace Peco
             else
             {
                 Alert.InvalidModeException();
-                _app.Exit();
+                App.Exit();
             }
         }
 
@@ -96,7 +92,7 @@ namespace Peco
 
         private void SettingsButton_Click(object sender, EventArgs e)
         {
-            Alert.Information("Soon");
+            //
         }
 
         private void OpenConfigButton_Click(object sender, EventArgs e)
@@ -112,12 +108,12 @@ namespace Peco
                 _trayIcon.Dispose();
             }
 
-            _app.Exit();
+            App.Exit();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            if (!_app.IsExiting())
+            if (!App.Exiting)
             {
                 e.Cancel = true;
                 this.Hide();
@@ -164,6 +160,8 @@ namespace Peco
 
             _onMenuItem.Enabled = false;
             _offMenuItem.Enabled = true;
+
+            TurnOffButton.Focus();
         }
 
         private void SetButtonsStateOff()
@@ -173,6 +171,8 @@ namespace Peco
 
             _onMenuItem.Enabled = true;
             _offMenuItem.Enabled = false;
+
+            TurnOnButton.Focus();
         }
 
         private void AboutPecoButton_Click(object sender, EventArgs e)
@@ -182,7 +182,7 @@ namespace Peco
 
         private void LogsButton_Click(object sender, EventArgs e)
         {
-            _app.ShowLogForm();
+            App.ShowLogForm();
         }
     }
 }

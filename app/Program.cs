@@ -9,14 +9,13 @@ namespace Peco
 
             if (!isFree)
             {
-                Alert.Error("The program has already running");
+                Alert.Error("Peco.exe is already running");
                 return;
             }
 
             ApplicationConfiguration.Initialize();
 
-            App app = new();
-            app.Run();
+            App.Run();
         }
     }
 }

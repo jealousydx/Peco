@@ -21,7 +21,7 @@ namespace Peco
 
         private static readonly string _settingsFile = Path.Combine(_appDataDir, "settings.json");
 
-        private static string _infoMessage = "";
+        private static string _infoMessage = Properties.Resources.info;
 
         private static readonly string _defaultConfigPath = DEFAULT_SETTINGS["config_path"];
         private static readonly string _defaultCorePath = DEFAULT_SETTINGS["core_path"];
@@ -38,8 +38,6 @@ namespace Peco
 
         public static void Init()
         {
-            _infoMessage = Properties.Resources.info;
-
             if (!Directory.Exists(_appDataDir))
             {
                 Directory.CreateDirectory(_appDataDir);
@@ -52,7 +50,7 @@ namespace Peco
             }
             else
             {
-                var settings = ReadSettings();
+                var settings = ReadFromSettingsFile();
                 Apply(settings);
             }
         }
@@ -64,10 +62,10 @@ namespace Peco
             _mode = settings.TryGetValue("mode", out var mode) ? mode : _defaultMode;
         }
 
-        private static void WriteSettingsToFile(Dictionary<string, string> settings)
+        private static void WriteSettingsToFile(Dictionary<string, string> text)
         {
             //
-            var data = JsonSerializer.Serialize(settings, new JsonSerializerOptions { WriteIndented = true });
+            var data = JsonSerializer.Serialize(text, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(_settingsFile, data);
         }
 
@@ -75,7 +73,7 @@ namespace Peco
         {
             if (!File.Exists(_configPath))
             {
-                Alert.Error($"config file does not exist: {_configPath}");
+                Alert.Error($"config file does not exist:\n{_configPath}");
                 return;
             }
 
@@ -102,16 +100,17 @@ namespace Peco
 
         public static void Save()
         {
-            var settings = new Dictionary<string, string>
+            var current_settings = new Dictionary<string, string>
             {
                 ["config_path"] = _configPath,
                 ["core_path"] = _corePath,
                 ["mode"] = _mode
             };
-            WriteSettingsToFile(settings);
+
+            WriteSettingsToFile(current_settings);
         }
 
-        private static Dictionary<string, string> ReadSettings()
+        private static Dictionary<string, string> ReadFromSettingsFile()
         {
             try
             {

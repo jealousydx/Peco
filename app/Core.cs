@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using Peco.app;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 
@@ -7,22 +8,6 @@ namespace Peco
     internal static class Core
     {
         private static Process? _singBox = null;
-
-        [DllImport("kernel32.dll")]
-        private static extern bool AttachConsole(uint dwProcessId);
-
-        [DllImport("kernel32.dll")]
-        private static extern bool FreeConsole();
-
-        [DllImport("kernel32.dll")]
-        private static extern bool GenerateConsoleCtrlEvent(uint dwCtrlEvent, uint dwProcessGroupId);
-
-        [DllImport("kernel32.dll")]
-        private static extern bool SetConsoleCtrlHandler(HandlerRoutine? Handler, bool Add);
-
-        private delegate bool HandlerRoutine(uint dwControlType);
-
-        private const uint CTRL_C_EVENT = 0;
 
         public static bool SUCCESS = true;
 
@@ -109,5 +94,21 @@ namespace Peco
 
             return true;
         }
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+        private static extern bool AttachConsole(uint dwProcessId);
+
+        [DllImport("kernel32.dll")]
+        private static extern bool FreeConsole();
+
+        [DllImport("kernel32.dll")]
+        private static extern bool GenerateConsoleCtrlEvent(uint dwCtrlEvent, uint dwProcessGroupId);
+
+        [DllImport("kernel32.dll")]
+        private static extern bool SetConsoleCtrlHandler(HandlerRoutine? Handler, bool Add);
+
+        private delegate bool HandlerRoutine(uint dwControlType);
+
+        private const uint CTRL_C_EVENT = 0;
     }
 }

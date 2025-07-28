@@ -1,21 +1,19 @@
-﻿namespace Peco
+﻿using Peco.app;
+
+namespace Peco
 {
     internal partial class LogForm : Form
     {
-        private readonly App _app;
-
-        public LogForm(App context)
+        public LogForm()
         {
             InitializeComponent();
 
             this.Hide();
-
-            _app = context;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            if (!_app.IsExiting())
+            if (!App.Exiting)
             {
                 e.Cancel = true;
                 this.Hide();
