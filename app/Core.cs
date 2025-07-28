@@ -1,9 +1,8 @@
-﻿using Peco.app;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 
-namespace Peco
+namespace Peco.app
 {
     internal static class Core
     {

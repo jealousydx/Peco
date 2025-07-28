@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using Timer = System.Windows.Forms.Timer;
 
-namespace Peco
+namespace Peco.app
 {
     internal static class Log
     {

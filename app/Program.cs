@@ -1,4 +1,4 @@
-namespace Peco
+namespace Peco.app
 {
     internal static class Program
     {

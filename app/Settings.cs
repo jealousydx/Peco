@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Text.Json;
 
-namespace Peco
+namespace Peco.app
 {
     internal static class Settings
     {
@@ -64,7 +64,6 @@ namespace Peco
 
         private static void WriteSettingsToFile(Dictionary<string, string> text)
         {
-            //
             var data = JsonSerializer.Serialize(text, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(_settingsFile, data);
         }

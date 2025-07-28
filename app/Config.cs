@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Nodes;
 
-namespace Peco
+namespace Peco.app
 {
     internal static class Config
     {

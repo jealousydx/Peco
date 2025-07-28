@@ -1,3 +1,5 @@
+using Peco.app;
+
 namespace Peco
 {
     internal partial class MainForm : Form
