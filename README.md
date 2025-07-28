@@ -1,7 +1,6 @@
 # Peco
 
 A simple GUI wrapper for the CLI of [sing-box](https://github.com/SagerNet/sing-box) by SagerNet.
-Currently in **alpha stage**, it provides basic functionality to manage sing-box with ease.
 
 ## Features
 
@@ -13,6 +12,8 @@ Currently in **alpha stage**, it provides basic functionality to manage sing-box
 
 - Switch between `Tun` and `System Proxy` modes
 
+- View real-time logs of the core
+
 - Automatically save settings on application exit to `C:\Users\<Username>\AppData\Local\Peco\`
 
 ## Supported Platforms
@@ -23,7 +24,7 @@ Currently in **alpha stage**, it provides basic functionality to manage sing-box
 
 - [.NET 8 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer)
 
-- Your `own` config.json file (There is no built-in config generator yet. You can create it yourself using the documentation on [sing-box.sagernet.org](https://sing-box.sagernet.org/configuration/))
+- Your `own` config.json file (There is no built-in config generator `yet`. You can create it yourself using the documentation on [sing-box.sagernet.org](https://sing-box.sagernet.org/configuration/))
 
 ## Usage
 
