@@ -9,6 +9,8 @@ namespace Peco
         private ToolStripMenuItem _offMenuItem = new();
         private ToolStripMenuItem _exitMenuItem = new();
 
+        private const int WM_ENDSESSION = 0x0016;
+
         public MainForm()
         {
             InitializeComponent();
@@ -79,6 +81,7 @@ namespace Peco
         private void TurnOffButton_Click(object? sender, EventArgs e)
         {
             Core.TurnOff();
+
             SetButtonsStateOff();
         }
 
@@ -109,6 +112,24 @@ namespace Peco
             }
 
             App.Exit();
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+
+            if (m.Msg == WM_ENDSESSION)
+            {
+                if (Settings.Mode == Settings.TUN_MODE)
+                {
+                    Adapter.Remove(Core.ADAPTER_NAME);
+                }
+                else
+                {
+                    Proxy.Disable();
+                }
+            }
+
+            base.WndProc(ref m);
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

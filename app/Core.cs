@@ -8,6 +8,7 @@ namespace Peco
     internal static class Core
     {
         private static Process? _singBox = null;
+        public const string ADAPTER_NAME = "sing-tun Tunnel";
 
         public static bool SUCCESS = true;
 
