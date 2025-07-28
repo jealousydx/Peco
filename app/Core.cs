@@ -94,6 +94,7 @@ namespace Peco.app
 
             return true;
         }
+        public static bool Enabled => _singBox != null;
 
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
         private static extern bool AttachConsole(uint dwProcessId);

@@ -121,6 +121,11 @@ namespace Peco
 
             if (m.Msg == WM_ENDSESSION)
             {
+                if (!Core.Enabled)
+                {
+                    base.WndProc(ref m);
+                }
+
                 if (Settings.Mode == Settings.TUN_MODE)
                 {
                     Adapter.Remove(Core.ADAPTER_NAME);
