@@ -106,8 +106,8 @@ namespace Peco.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на [0.1.0-alpha]  
-        ///A simple GUI wrapper for sing-box.exe that helps you start/stop the core and load configs.
+        ///   Ищет локализованную строку, похожую на [1.0.0]
+        ///A simple GUI for sing-box.exe that allows you to start/stop the core, manage configuration files, switch between modes, and view logs..
         /// </summary>
         internal static string info {
             get {
