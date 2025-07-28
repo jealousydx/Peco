@@ -145,8 +145,8 @@
 ]</value>
   </data>
   <data name="info" xml:space="preserve">
-    <value>[0.1.0-alpha]  
-A simple GUI wrapper for sing-box.exe that helps you start/stop the core and load configs</value>
+    <value>[1.0.0]
+A simple GUI for sing-box.exe that allows you to start/stop the core, manage configuration files, switch between modes, and view logs.</value>
   </data>
   <data name="log" xml:space="preserve">
     <value>{
