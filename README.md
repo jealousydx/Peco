@@ -22,13 +22,11 @@ A simple GUI wrapper for the CLI of [sing-box](https://github.com/SagerNet/sing-
 
 ## Requirements
 
-- [.NET 8 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer)
+- [.NET 8 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer), `unless you are using the Self-Contained version`.
 
 - Your `own` config.json file (There is no built-in config generator `yet`. You can create it yourself using the documentation on [sing-box.sagernet.org](https://sing-box.sagernet.org/configuration/))
 
 ## Usage
-
-- [.NET 8 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-8.0.18-windows-x64-installer) is required to run Peco, `unless you are using the Self-Contained version`.
 
 - Run `Peco.exe`
 
