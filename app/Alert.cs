@@ -21,5 +21,10 @@
         {
             MessageBox.Show($"MODE INITED: {Settings.Mode}", "InvalidModeException", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        public static void TunModeError()
+        {
+            MessageBox.Show("** Restart Peco.exe as Admin **", "Tun Mode", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }

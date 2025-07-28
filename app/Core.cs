@@ -19,7 +19,7 @@ namespace Peco
 
                 if (!isAdmin)
                 {
-                    Alert.Warning("TUN MODE: RELAUNCH APP AS ADMIN");
+                    Alert.TunModeError();
                     SUCCESS = false;
                     return;
                 }
