@@ -40,6 +40,7 @@
             logTextBox.Location = new Point(-1, -1);
             logTextBox.Multiline = true;
             logTextBox.Name = "logTextBox";
+            logTextBox.ReadOnly = true;
             logTextBox.ScrollBars = ScrollBars.Vertical;
             logTextBox.Size = new Size(535, 332);
             logTextBox.TabIndex = 0;
