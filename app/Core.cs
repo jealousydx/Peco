@@ -7,8 +7,9 @@ namespace Peco.app
     internal static class Core
     {
         private static Process? _singBox = null;
-        public const string ADAPTER_NAME = "sing-tun Tunnel";
 
+        public const string ADAPTER_NAME = "sing-tun Tunnel";
+        public static bool Enabled => _singBox != null;
         public static bool SUCCESS = true;
 
         public static void TurnOn()
@@ -94,7 +95,6 @@ namespace Peco.app
 
             return true;
         }
-        public static bool Enabled => _singBox != null;
 
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
         private static extern bool AttachConsole(uint dwProcessId);
