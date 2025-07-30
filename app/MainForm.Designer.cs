@@ -49,7 +49,7 @@
             // 
             TurnOnButton.Location = new Point(10, 45);
             TurnOnButton.Name = "TurnOnButton";
-            TurnOnButton.Size = new Size(210, 40);
+            TurnOnButton.Size = new Size(220, 40);
             TurnOnButton.TabIndex = 0;
             TurnOnButton.Text = "On";
             TurnOnButton.UseVisualStyleBackColor = true;
@@ -60,7 +60,7 @@
             TurnOffButton.Enabled = false;
             TurnOffButton.Location = new Point(10, 100);
             TurnOffButton.Name = "TurnOffButton";
-            TurnOffButton.Size = new Size(210, 40);
+            TurnOffButton.Size = new Size(220, 40);
             TurnOffButton.TabIndex = 1;
             TurnOffButton.Text = "Off";
             TurnOffButton.UseVisualStyleBackColor = true;
@@ -68,10 +68,9 @@
             // 
             // SettingsButton
             // 
-            SettingsButton.Enabled = false;
             SettingsButton.Location = new Point(10, 155);
             SettingsButton.Name = "SettingsButton";
-            SettingsButton.Size = new Size(210, 40);
+            SettingsButton.Size = new Size(220, 40);
             SettingsButton.TabIndex = 2;
             SettingsButton.Text = "Settings";
             SettingsButton.UseVisualStyleBackColor = true;
@@ -81,7 +80,7 @@
             // 
             ExitButton.Location = new Point(10, 210);
             ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(210, 40);
+            ExitButton.Size = new Size(220, 40);
             ExitButton.TabIndex = 3;
             ExitButton.Text = "Exit";
             ExitButton.UseVisualStyleBackColor = true;
@@ -97,7 +96,7 @@
             Menu.ImageScalingSize = new Size(15, 15);
             Menu.Items.AddRange(new ToolStripItem[] { ConfigButton, ModeButton, LogsButton, AboutPecoButton });
             Menu.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            Menu.Location = new Point(0, 0);
+            Menu.Location = new Point(5, 3);
             Menu.Name = "Menu";
             Menu.Padding = new Padding(15, 0, 0, 0);
             Menu.Size = new Size(235, 30);
@@ -169,7 +168,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(235, 265);
+            ClientSize = new Size(244, 271);
             Controls.Add(ExitButton);
             Controls.Add(SettingsButton);
             Controls.Add(TurnOffButton);
