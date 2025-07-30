@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Peco.app
 {
-    internal static class Adapter
+    internal static class SingTunAdapter
     {
         static readonly Guid GUID_NETCLASS = new Guid("4d36e972-e325-11ce-bfc1-08002be10318");
 
@@ -76,7 +76,7 @@ namespace Peco.app
         [DllImport("setupapi.dll", SetLastError = true)]
         static extern bool SetupDiDestroyDeviceInfoList(IntPtr DeviceInfoSet);
 
-        public static bool Remove(string adapterName)
+        public static bool Remove()
         {
             Guid netClassGuid = GUID_NETCLASS;
             IntPtr devInfo = SetupDiGetClassDevs(ref netClassGuid, IntPtr.Zero, IntPtr.Zero, DIGCF_PROFILE);
@@ -98,7 +98,7 @@ namespace Peco.app
                         continue;
 
                     string name = Encoding.Unicode.GetString(buffer, 0, (int)needed - 2);
-                    if (!string.Equals(name, adapterName, StringComparison.OrdinalIgnoreCase))
+                    if (!string.Equals(name, Core.ADAPTER_NAME, StringComparison.OrdinalIgnoreCase))
                         continue;
 
                     var removeParams = new SP_REMOVEDEVICE_PARAMS
