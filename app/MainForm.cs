@@ -131,7 +131,7 @@ namespace Peco
 
                 if (Settings.Mode == Settings.TUN_MODE)
                 {
-                    Adapter.Remove(Core.ADAPTER_NAME);
+                    SingTunAdapter.Remove();
                 }
                 else
                 {
