@@ -24,10 +24,8 @@ namespace Peco.app
             Application.Run(_mainForm);
         }
 
-        public static void ShowLogForm()
         public static void Restart()
         {
-            _logForm.Show();
             var appPath = Process.GetCurrentProcess().MainModule?.FileName;
 
             var startInfo = new ProcessStartInfo
@@ -58,6 +56,11 @@ namespace Peco.app
             Settings.Save();
 
             Application.Exit();
+        }
+
+        public static void ShowLogForm()
+        {
+            _logForm.Show();
         }
 
         public static bool Exiting => _isExiting;
