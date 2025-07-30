@@ -1,4 +1,7 @@
-﻿namespace Peco.app
+﻿using System.ComponentModel;
+using System.Diagnostics;
+
+namespace Peco.app
 {
     internal static partial class App
     {
@@ -22,8 +25,29 @@
         }
 
         public static void ShowLogForm()
+        public static void Restart()
         {
             _logForm.Show();
+            var appPath = Process.GetCurrentProcess().MainModule?.FileName;
+
+            var startInfo = new ProcessStartInfo
+            {
+                FileName = appPath,
+                UseShellExecute = true,
+                Verb = "runas"
+            };
+
+            try
+            {
+                Process.Start(startInfo);
+                Program.DisposeMutex();
+            }
+            catch (Win32Exception)
+            {
+                return;
+            }
+
+            Exit();
         }
 
         public static void Exit()

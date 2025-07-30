@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Security.Principal;
 
 namespace Peco.app
 {
@@ -16,11 +15,10 @@ namespace Peco.app
         {
             if (Settings.Mode == Settings.TUN_MODE)
             {
-                bool isAdmin = new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
-
-                if (!isAdmin)
+                if (!Program.IsElevated)
                 {
-                    Alert.TunModeError();
+                    App.Restart();
+
                     SUCCESS = false;
                     return;
                 }

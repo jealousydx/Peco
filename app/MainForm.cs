@@ -18,6 +18,7 @@ namespace Peco
             InitializeComponent();
             InitializeTrayIcon();
             InitializeMode();
+            InitializeWindowText();
         }
 
         private void InitializeMode()
@@ -31,9 +32,11 @@ namespace Peco
                 SetButtonsStateSystemProxyMode();
             }
             else
+        private void InitializeWindowText()
+        {
+            if (Program.IsElevated)
             {
-                Alert.InvalidModeException();
-                App.Exit();
+                this.Text += " (admin)";
             }
         }
 
