@@ -110,18 +110,13 @@ namespace Peco
 
         private void ExitButton_Click(object? sender, EventArgs e)
         {
-            if (_trayIcon != null)
-            {
-                _trayIcon.Visible = false;
-                _trayIcon.Dispose();
-            }
+            this.DisposeTrayIcon();
 
             App.Exit();
         }
 
         protected override void WndProc(ref Message m)
         {
-
             if (m.Msg == WM_ENDSESSION)
             {
                 if (!Core.Enabled)
@@ -151,7 +146,34 @@ namespace Peco
                 return;
             }
 
+            this.DisposeTrayIcon();
+
             base.OnFormClosing(e);
+        }
+
+        private void AboutPecoButton_Click(object sender, EventArgs e)
+        {
+            Alert.Information(Settings.Info);
+        }
+
+        private void LogsButton_Click(object sender, EventArgs e)
+        {
+            if (!Core.Enabled)
+            {
+                Alert.Error("The core is disabled");
+                return;
+            }
+
+            App.ShowLogForm();
+        }
+
+        private void DisposeTrayIcon()
+        {
+            if (_trayIcon != null)
+            {
+                _trayIcon.Visible = false;
+                _trayIcon.Dispose();
+            }
         }
 
         private void SetSystemProxyButton_Click(object sender, EventArgs e)
@@ -204,16 +226,6 @@ namespace Peco
             _offMenuItem.Enabled = false;
 
             TurnOnButton.Focus();
-        }
-
-        private void AboutPecoButton_Click(object sender, EventArgs e)
-        {
-            Alert.Information(Settings.Info);
-        }
-
-        private void LogsButton_Click(object sender, EventArgs e)
-        {
-            App.ShowLogForm();
         }
     }
 }
