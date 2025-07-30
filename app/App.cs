@@ -9,6 +9,7 @@
 
         static App()
         {
+            SingTunAdapter.Remove();
             Settings.Init();
             Log.Init();
 
